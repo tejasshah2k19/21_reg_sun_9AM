@@ -10,12 +10,12 @@
     <center>
         <h2>Signup</h2>
 
-        <form action="Login.html" method="get"> 
-
+        <form action="Login.html" method="post" enctype="multipart/form-data"  > 
+            
             <table>
                 <tr>
                     <td>FirstName :</td>
-                    <td><input type="text" name="firstName"/></td>  
+                    <td><input type="text" name="firstName" value="Royal" /></td>  
                 </tr>
                 <tr>
                        <td>LastName : </td> 
@@ -23,7 +23,7 @@
                 </tr>  
                 <tr>
                     <td>Email : </td>
-                    <td><input type="email" name="email"/></td>
+                    <td><input type="email" placeholder="xxx@xxx.xxx" name="email"/></td>
                 </tr>
                 <tr>
                     <td>Password :</td>
@@ -32,7 +32,7 @@
                 <tr>
                     <td>Gender :</td>
                     <td>
-                        Male : <input type="radio" value="male" name="gender" />
+                        Male : <input type="radio" value="male" checked="checked"  name="gender" />
                         Female : <input type="radio" value="female" name="gender" />
                     </td>    
                 </tr>    
@@ -41,9 +41,9 @@
                 <tr>
                     <td>Hobby : </td>
                     <td> 
-                        WhatsApp : <input type="checkbox" name="hobby" value="wp" /> 
+                        WhatsApp : <input type="checkbox" name="hobby" checked="checked"  value="wp" /> 
                        <br> Insta : <input type="checkbox" name="hobby" value="insta" />
-                       <br> Cricket : <input type="checkbox" name="hobby" value="ckt" />
+                       <br> Cricket : <input type="checkbox" name="hobby" checked="checked"  value="ckt" />
 
                     </td>    
                 </tr>
@@ -54,20 +54,74 @@
                     <td>
                         <select name="country">
                              <option value="-1">Select Country</option>
-                             <option value="in">India</option>
+                             <option value="in" selected="selected" >India</option>
                              <option value="us">USA</option>
                              <option value="uk">UK</option>   
                         </select>
 
                     </td>
                 </tr>
+
+                <tr>
+                    <td>Language : </td>
+                    <td>
+                        <select name="lang"  multiple="multiple">
+                            <option value="hindi" >Hindi</option>
+                             <option value="eng">English</option>
+                             <option value="french">French</option>   
+                        </select>
+
+                    </td>
+                </tr>
+
+                <tr>
+                        <td>Address</td>
+                        <td><textarea name="address"  rows="10" cols="25"> </textarea></td>
+                </tr>
+
+                <tr>
+                    <td>Your Age Group</td>
+                    <td>
+                        <input type="range" min="18" max="100" value="25" name="age"/>
+                    </td>     
+                </tr>
+
+                <tr>
+                    <td>Profile Pic</td>
+                     <td>
+                         <input type="file" name="profilePic" />
+                     </td>   
+                </tr>
+
+
+                <tr>
+                    <td>DOB</td>
+                    <td><input type="date" name="dob" /> </td>    
+                </tr>
+
+
+                <tr>
+                    <td>BirthTime</td>
+                    <td><input type="time" name="birthTime" /> </td>    
+                </tr>
+
+                <tr> 
+                    <td colspan="2">
+                        <input type="hidden" name="secretKey" value="klkjl12323">
+                    </td>
+                </tr>
                 <tr>
                     <td colspan="2" align="center"><input type="submit" value="Submit" /></td>
                 </tr>    
 
+                
             </table>
  
-        </form>    
+        </form>
+        <br><br>
+
+        <a href="Login.html" > Login</a>
+        
     </center>
 </body>
 </html>
