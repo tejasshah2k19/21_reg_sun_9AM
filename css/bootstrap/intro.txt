@@ -1,0 +1,26 @@
+css :-
+    key:value -> properties 
+
+    selector 
+        class , id, tag       
+    
+    responsive:
+        flex
+        mediaquery 
+-----------------------------------------------
+bootstrap:-
+        lib , external css
+                selector:-
+                         class 
+
+install?
+    1) CDN 
+    2) download and use as an external css 
+
+
+-----------------------------------------------
+
+
+container   class:-
+    1) container
+    2) container-fluid 
