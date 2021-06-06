@@ -1,0 +1,23 @@
+bootstrap 4 
+
+
+font-family : "Helvetica Neue",Helvetica,sans-serif 
+font-size : 16px
+
+
+text colors:- 
+
+    text-primary : blue 
+        primary,success,dark,white,secondary,info,warning,muted
+
+
+
+
+p
+h1-h6
+
+
+h1 -> display-1
+display-2
+display-3 ..
+
