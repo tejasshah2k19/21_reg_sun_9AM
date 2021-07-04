@@ -1,0 +1,58 @@
+ js - javascript 
+
+ www => html + css 
+
+ js ->1995    ECMA-> 1997  no server interaction 
+
+
+ object -- class object 
+
+ loop
+ function 
+ conditional 
+
+
+ java -- is not javascript 
+
+
+ tools ?? 
+    text editor 
+    browser [execute] [frontend]
+
+    how browser can execute js code??? 
+
+
+ME => chakra 
+CHROME => V8
+FIREFOX => spidermonkey 
+
+
+.js  -> run => ME | CH | FF 
+
+
+ES1 - 1997 
+
+2015 - ES6
+
+ES2016 
+
+ES2018
+
+var 
+
+
+
+js 
+    1) internal [ html ]
+    2) external [ .js ]
+
+
+
+
+
+
+
+
+
+
+ 
