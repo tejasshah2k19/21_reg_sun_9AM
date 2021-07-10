@@ -4,6 +4,9 @@
 
  js ->1995    ECMA-> 1997  no server interaction 
 
+ECMA - specification
+
+js - implementation 
 
  object -- class object 
 
@@ -47,6 +50,167 @@ js
     2) external [ .js ]
 
 
+---------------------------------------------------------------------------
+
+
+variable :-
+    var 
+    ES6  ES2015 
+
+    let 
+    const 
+
+
+let salary = 90000;
+let salary = 95000;  // can not redeclare in same scope 
+
+
+
+var salary = 25000;
+var salary = 35000;
+
+function add(){
+
+    var ans = 0;//global variable
+}
+
+console.log(ans);
+
+
+//let is associated with scope 
+function add(){
+
+    let ans = 0; //local variable
+}
+
+console.log(ans); //error we can not access outside function 
+
+------------------------
+
+let a = 90;
+
+{
+
+    let a = 900;
+    console.log(a);//900
+    //let a = 909; // error 
+}
+
+console.log(a);//90 
+
+
+------------------------
+
+{
+    let a = 90;
+    //log -> 90 
+}
+console.log(a);//error 
+
+------------------------
+var a = 900;
+
+{
+    var a = 90;
+    //log -> 90 
+}
+console.log(a);// 90 
+------------------------
+const keyword --> ES6 
+    to make your variable constant.
+    once we initialized we can not re-init. //assignment //no change at all  //fix
+
+    const A = 90;
+    A = 99; //error 
+
+    //objects ref array => const
+
+------------------------
+
+EVENTS 
+
+events are things that happens in html element. 
+
+button -> click
+link -> hover , click,double click 
+text -> keypress,keydown,keyup,keyrelease 
+
+
+js will reac on any event.
+
+<input type="button" onclick="console.log('button click')" /> 
+
+onclick
+onchange
+onmouseover
+keyup 
+onload 
+
+------------------------
+
+DOM 
+  Document Object Model 
+
+  js -> access any html element { tag } or want to change any html element 
+
+  page load --> 
+            Document
+
+            HTML 
+    HEAD            BODY
+    TITLE           INPUT  | H1 | FORM 
+    text            text 
+
+1) element modify
+2) attribute
+3) css 
+4) remove HTML 
+
+
+
+                        DOM
+1)  CORE DOM
+2)  XML DOM
+3)  HTML DOM 
+
+
+
+DOM -> methods , properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -56,3 +220,9 @@ js
 
 
  
+
+
+
+
+
+

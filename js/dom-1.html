@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div id="firstdiv">
+        This     is My First Div Tag
+        <b>First Intro</b>
+        Bye
+    </div>
+    
+    <br>
+    
+    <div id="seconddiv">
+        This is My Second Div Tag
+        <b>First Intro</b>
+        Bye
+    </div>
+
+    <br>
+    <input type="button" value="Print Div" onclick="printMsg()"/>
+<script>
+    
+    function printMsg(){
+        let x = document.getElementById("firstdiv");
+        console.log(x.innerHTML); // you will get all contents including spance and other html element {tag} <b>
+        console.log(x.innerText); // you will get all contents but no space no other html element 
+        console.log(x.textContent); // you will get all contents with space but no other html element  
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
