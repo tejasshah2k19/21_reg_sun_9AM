@@ -169,19 +169,47 @@ DOM
 
 
                         DOM
-1)  CORE DOM
+1)  CORE DOM   
 2)  XML DOM
 3)  HTML DOM 
 
 
 
-DOM -> methods , properties
+HTML DOM -> methods , properties
+1) getElementById
+
+1 innerHTML
+2 innerText
+3 textContent 
 
 
 
+-----------------------------------------------
+
+array => which can hold n number of values 
+         collection of multiple type of data 
+
+a = 10 
+//
+//
+a= 20 
+
+a = [10,20] //single variable can hold multiple values 
+
+a = [10,20,"royal"] //Object
 
 
+a = [] //blank array 
 
+a = [11,22,33] // python --> list 
+
+a[0] // 11 
+
+a[0]= 1000
+
+a // [1000,22,33]
+
+const a = [1,2,4]
 
 
 

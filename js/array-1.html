@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Take n numbers from user and calculate sum of all numbers.<br><br> 
+
+
+    <form name="f">
+
+        No: <input type="text" name="no"/><br>
+        <input type="button" value="Add" onclick="insertNo()"/>
+        <input type="button" value="Print" onclick="printArray()"/>
+        
+    </form>
+    <br>
+    <p id="pArray"></p>
+ <script>
+     var array  = [] 
+
+    function insertNo(){
+        let no = parseInt(document.f.no.value);
+        array.push(no);
+        document.f.no.value = "";
+        printArray();
+    }
+
+    function printArray(){
+         let sum = 0;
+        for(let i=0;i<array.length;i++){
+            sum = sum + array[i];
+        }
+        document.getElementById("pArray").innerHTML = array+" => "+sum;
+        
+    }
+ </script>   
+</body>
+</html>

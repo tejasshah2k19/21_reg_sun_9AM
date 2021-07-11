@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form name="f">
+        No.1 : <input type="text" name="n1" /><br>
+        No.2 : <input type="text" name="n2" /><br>
+
+        Add: <input type="checkbox" name="choice" value="add" /><br>
+        Sub:<input type="checkbox" name="choice" value="sub" /><br>
+        Mul:<input type="checkbox" name="choice" value="mul" /><br>
+        Div: <input type="checkbox" name="choice" value="div" /><br>
+
+        <input type="button" value="Add" onclick="add()" />
+
+    </form>
+    <p id="pAns"></p>
+
+    <script>
+
+        function add() {
+            let n1 = parseInt(document.f.n1.value);
+            let n2 = parseInt(document.f.n2.value);
+            let ans = "Please Select any operation";
+            let ch = "";
+            let str = "";
+            let pAns = document.getElementById("pAns");
+            for(let i=0;i<document.f.choice.length;i++){//0 1 
+
+                if(document.f.choice[i].checked){
+
+                       ch =  document.f.choice[i].value;//sub 
+
+                    if (ch == "add") {
+                        ans = n1 + n2;//50
+                        str = str + "add = "+ans+"<br>"
+                    } else if (ch == "sub") {
+                        ans = n1 - n2;//10
+                        str = str + "sub = "+ans+"<br>"
+
+                    } else if (ch == "mul") {
+                        ans = n1 * n2;
+                        str = str + "mul = "+ans+"<br>"
+
+                    } else if (ch == "div") {
+                        ans = n1 / n2;
+                        str = str + "div = "+ans+"<br>"
+
+                    }
+ 
+                    //600 
+                //    str = str + ans + " "; // "50 10 600 1.5"
+                }//if 
+            }//for 
+            pAns.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

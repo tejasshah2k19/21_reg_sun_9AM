@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form name="f">
+        No.1 : <input type="text" name="n1" /><br>
+        No.2 : <input type="text" name="n2" /><br>
+
+        Add: <input type="radio" name="choice" value="add" /><br>
+        Sub:<input type="radio" name="choice" value="sub" /><br>
+        Mul:<input type="radio" name="choice" value="mul" /><br>
+        Div: <input type="radio" name="choice" value="div" /><br>
+
+        <input type="button" value="Add" onclick="add()" />
+
+    </form>
+    <p id="pAns"></p>
+
+    <script>
+
+        function add() {
+            let n1 = parseInt(document.f.n1.value);
+            let n2 = parseInt(document.f.n2.value);
+            let ans = "Please Select any operation";
+
+            let choice = document.f.choice.value;
+
+
+            if (choice == "add") {
+                ans = n1 + n2;
+            } else if (choice == "sub") {
+                ans = n1 - n2;
+            } else if (choice == "mul") {
+                ans = n1 * n2;
+            } else if (choice == "div") {
+                ans = n1 / n2;
+            }
+
+            let pAns = document.getElementById("pAns");
+            pAns.innerHTML = ans;
+
+
+        }
+    </script>
+</body>
+
+</html>
