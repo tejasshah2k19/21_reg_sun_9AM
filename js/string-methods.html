@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //string is immutable 
+        
+        var data = "jony jony yes papa";
+        console.log(data.length);
+        console.log(data.slice(5,9));//string starts with 0th index 
+        //5 6 7 8       
+        console.log(data.slice(5));//5th to end 
+        console.log(data.slice(-7)); // backward indexing 
+
+        console.log("data => ",data);
+
+        data = "joy@gmail.com"
+        console.log(data.replace("joy","royal"));//royal@gmail.com
+        console.log(data); //joy@gmail.com
+
+        data = data.toUpperCase(); 
+        console.log(data);
+
+        data = data.toLowerCase();
+        //concat 
+        //trim 
+        data ="      royal     ";
+        data.trim(" "); 
+
+        data = "15";
+        console.log(data.padStart(5,0));
+        data = "155";
+        console.log(data.padStart(5,0));
+        data = "15552";
+        console.log(data.padStart(5,0));
+
+
+        data = "15";
+        console.log(data.padStart(5," "));
+        data = "155";
+        console.log(data.padStart(5," "));
+        data = "15552";
+        console.log(data.padStart(5," "));
+
+
+        //pdaEnd 
+
+
+    </script>
+</body>
+</html>

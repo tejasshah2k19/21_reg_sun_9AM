@@ -16,10 +16,12 @@
         No: <input type="text" name="no"/><br>
         <input type="button" value="Add" onclick="insertNo()"/>
         <input type="button" value="Print" onclick="printArray()"/>
-        
+        <input type="button" value="PrintMax" onclick="printMax()" />
     </form>
     <br>
     <p id="pArray"></p>
+    <p id="pMax"></p>
+    
  <script>
      var array  = [] 
 
@@ -28,6 +30,7 @@
         array.push(no);
         document.f.no.value = "";
         printArray();
+        printMax();
     }
 
     function printArray(){
@@ -36,8 +39,21 @@
             sum = sum + array[i];
         }
         document.getElementById("pArray").innerHTML = array+" => "+sum;
-        
     }
+
+    function printMax(){
+        let max = array[0];
+        
+        for(let i=0;i<array.length;i++){
+            if(max< array[i]){
+                max = array[i];
+            }
+        }
+        document.getElementById("pMax").innerHTML = max;
+
+    }
+
+
  </script>   
 </body>
 </html>

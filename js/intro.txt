@@ -212,6 +212,18 @@ a // [1000,22,33]
 const a = [1,2,4]
 
 
+---------------------------------
+
+17-07-2021 Task 
+1) take string from user using input check its palindrom or not. 
+2) modify your array program 
+    2.1) add max button , find out max from array 
+    2.2) add sort button , sort an array 
+    2.3) search button , this button will prompt a number from user and search it in array
+            if number found print number is present 
+            else please try tomorrow with better luck.
+            
+---------------------------------
 
 
 
