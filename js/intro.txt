@@ -224,6 +224,31 @@ const a = [1,2,4]
             else please try tomorrow with better luck.
             
 ---------------------------------
+c++ / java 
+
+class object 
+
+let car = {
+    name:"ciaz",
+    price: 1234567
+}
+
+let user = {
+    name:"abc",
+    email:"abc@gmail.com",
+    password:"aaaa"
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

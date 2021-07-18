@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .error{
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Signup form</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="/action_page.php" name="reg">
+                    <div class="form-group">
+                        <label for="email">FirstName:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter firstname"
+                            name="firstName">
+                            <p class="error" id="firstNameError"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <p class="error" id="emailError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                        <p class="error" id="passwordError"></p>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="saveData()">Submit</button>
+                </form>
+            </div>
+            <!--col md 6-->
+        </div> <!-- row-->
+    </div>
+    <!--container-->
+
+    <script>
+        function saveData() {
+            let firstName = document.reg.firstName.value;
+            let email = document.reg.email.value;
+            let password = document.reg.password.value;
+          
+            let isError = false; // no error 
+            let error = "";
+
+            var onlyAlphabets = /^[a-zA-Z]+$/; //a-z A-Z atleat 1 char or n char  
+            var onlyDigits  = /^[0-9]+$/; // 0 - 9 [ minmum 1 time max n time]
+
+
+            if(firstName == undefined || firstName.trim().length == 0  ){
+                isError = true; // error     
+                error = error + "Please Enter FirstName\n";
+                document.getElementById("firstNameError").innerHTML = "Please Enter FirstName"
+            }else if( onlyAlphabets.test(firstName) == false){
+                document.getElementById("firstNameError").innerHTML = "Please Enter Only alphabets [ a-z or A-Z ] "
+            }
+            else{
+                document.getElementById("firstNameError").innerHTML = ""
+            }
+
+            if(email == undefined || email.trim().length == 0  ){
+                isError = true; // error     
+                error = error + "Please Enter Email\n";
+                document.getElementById("emailError").innerHTML = "Please Enter Email"
+            
+            }else{
+                document.getElementById("emailError").innerHTML = ""
+            }
+
+            if(password == undefined || password.trim().length == 0  ){
+                isError = true; // error     
+                error = error + "Please Enter password\n";
+                document.getElementById("passwordError").innerHTML = "Please Enter Password"
+            
+            }else if(password.length < 8){
+                document.getElementById("passwordError").innerHTML = "Atleast 8 combination needed" 
+            }else{
+                document.getElementById("passwordError").innerHTML = ""
+            }
+
+            // XXX @ XXX . XXX 
+            //A-Z a-z 
+            //0-9 
+            //regex 
+
+            if(isError == true){
+                //alert(error);
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>
