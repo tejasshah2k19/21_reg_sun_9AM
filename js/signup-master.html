@@ -11,87 +11,127 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
-        .error{
+        .error {
             color: red;
         }
-
     </style>
 </head>
 
 <body>
 
     <div class="container">
-        <h2>Signup form</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <form action="/action_page.php" name="reg">
-                    <div class="form-group">
-                        <label for="email">FirstName:</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Enter firstname"
-                            name="firstName">
+        <div id="signup">
+            <h2>Signup form</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="/action_page.php" name="reg">
+                        <div class="form-group">
+                            <label for="email">FirstName:</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter firstname"
+                                name="firstName">
                             <p class="error" id="firstNameError"></p>
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
-                        <p class="error" id="emailError"></p>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
-                        <p class="error" id="passwordError"></p>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <p class="error" id="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                name="password">
+                            <p class="error" id="passwordError"></p>
+                        </div>
 
-                    <button type="button" class="btn btn-primary" onclick="saveData()">Submit</button>
-                </form>
-            </div>
-            <!--col md 6-->
-        </div> <!-- row-->
+                        <button type="button" class="btn btn-primary" onclick="saveData()">Submit</button>
+                    </form>
+                    <a href="#" onclick="loginForm()">Login</a>
+                </div>
+                <!--col md 6-->
+            </div> <!-- row-->
+        </div> <!-- main signup form-->
+
+
+        <div id="login" style="display: none;">
+            <h2>Login form</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="/action_page.php" name="login">
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <p class="error" id="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                name="password">
+                            <p class="error" id="passwordError"></p>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="authenticate()">Login</button>
+                    </form>
+                    <a href="#" onclick="signupForm()">Signup</a>
+                </div>
+                <!--col md 6-->
+            </div> <!-- row-->
+        </div> <!-- main login form div-->
+
     </div>
     <!--container-->
 
     <script>
+        var users = []
+
+
         function saveData() {
             let firstName = document.reg.firstName.value;
             let email = document.reg.email.value;
             let password = document.reg.password.value;
-          
+
             let isError = false; // no error 
             let error = "";
 
             var onlyAlphabets = /^[a-zA-Z]+$/; //a-z A-Z atleat 1 char or n char  
-            var onlyDigits  = /^[0-9]+$/; // 0 - 9 [ minmum 1 time max n time]
+            var onlyDigits = /^[0-9]+$/; // 0 - 9 [ minmum 1 time max n time]
+            var emailReg = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 
-
-            if(firstName == undefined || firstName.trim().length == 0  ){
+            if (firstName == undefined || firstName.trim().length == 0) {
                 isError = true; // error     
                 error = error + "Please Enter FirstName\n";
                 document.getElementById("firstNameError").innerHTML = "Please Enter FirstName"
-            }else if( onlyAlphabets.test(firstName) == false){
+            } else if (onlyAlphabets.test(firstName) == false) {
                 document.getElementById("firstNameError").innerHTML = "Please Enter Only alphabets [ a-z or A-Z ] "
+                isError = true;
             }
-            else{
+            else {
                 document.getElementById("firstNameError").innerHTML = ""
             }
 
-            if(email == undefined || email.trim().length == 0  ){
+            if (email == undefined || email.trim().length == 0) {
                 isError = true; // error     
                 error = error + "Please Enter Email\n";
                 document.getElementById("emailError").innerHTML = "Please Enter Email"
-            
-            }else{
+
+            } else if (emailReg.test(email) == false) {
+                isError = true;
+                document.getElementById("emailError").innerHTML = "Invalid Email"
+            }
+            else {
                 document.getElementById("emailError").innerHTML = ""
             }
 
-            if(password == undefined || password.trim().length == 0  ){
+            if (password == undefined || password.trim().length == 0) {
                 isError = true; // error     
                 error = error + "Please Enter password\n";
                 document.getElementById("passwordError").innerHTML = "Please Enter Password"
-            
-            }else if(password.length < 8){
-                document.getElementById("passwordError").innerHTML = "Atleast 8 combination needed" 
-            }else{
+
+            } else if (password.length < 8) {
+                isError = true;
+                document.getElementById("passwordError").innerHTML = "Atleast 8 combination needed"
+            } else {
                 document.getElementById("passwordError").innerHTML = ""
             }
 
@@ -100,9 +140,52 @@
             //0-9 
             //regex 
 
-            if(isError == true){
-                //alert(error);
+            if (isError == false) {
+
+                let userId = parseInt(Math.random() * 100000);
+                let user = { userId: userId, firstName: firstName, email: email, password: password };
+                users.push(user);
             }
+        }
+
+
+        function loginForm() {
+            let signup = document.getElementById("signup");
+            signup.style.display = "none"
+            let login = document.getElementById("login");
+            login.style.display = "block"
+        }
+        function signupForm() {
+            let signup = document.getElementById("signup");
+            signup.style.display = "block"
+            let login = document.getElementById("login");
+            login.style.display = "none"
+        }
+
+        function authenticate(){
+            let email = document.login.email.value;
+            let password = document.login.password.value;
+            isValid = false
+            //validation 
+
+            for(let i=0;i<users.length;i++){
+                let user  = users[i];
+                
+                if(email == user.email && password == user.password ){
+                    isValid = true
+                    break 
+                }
+                
+            }
+
+
+            if(isValid){
+                alert("Welcome");
+            }else{
+                alert("Invalid Credentials!!!");
+            }
+
+
 
 
         }
