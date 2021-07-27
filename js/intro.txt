@@ -239,6 +239,23 @@ let user = {
     password:"aaaa"
 }
 
+------------------------------
+to add any new element in html 
+we have createElement method and to append any other element in side parent element we have 
+appendChild method 
+
+
+let table  = document.createElement("table")
+let thead  = document.createElement("thead")
+let tbody  = document.createElement("tbody")
+
+table.appendChild(thead)
+table.appendChild(tbody)
+ 
+------------------------------
+
+
+
 
 
 

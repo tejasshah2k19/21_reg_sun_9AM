@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -13,6 +14,17 @@
     <style>
         .error {
             color: red;
+        }
+
+        table {
+            background-color: azure;
+            border-spacing: 1px;
+        }
+
+        tr,
+        td,th {
+            border: 1px solid black;
+            padding: 10px 15px;
         }
     </style>
 </head>
@@ -79,12 +91,20 @@
             </div> <!-- row-->
         </div> <!-- main login form div-->
 
+
+        <div id="mytable">
+
+        </div>
     </div>
     <!--container-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         var users = []
-
+        let dummy1 = {userId:1234,firstName:"tejas",email:"tejas@gmail.com",password:"12345678"}
+        let dummy2 = {userId:45678,firstName:"prisha",email:"prisha@gmail.com",password:"12345678"}
+        
+        users.push(dummy1)
+        users.push(dummy2)
 
         function saveData() {
             let firstName = document.reg.firstName.value;
@@ -145,6 +165,9 @@
                 let userId = parseInt(Math.random() * 100000);
                 let user = { userId: userId, firstName: firstName, email: email, password: password };
                 users.push(user);
+                document.reg.reset()
+                toastr.success("Signup done...", "", { timeOut: 3000 })
+
             }
         }
 
@@ -162,32 +185,95 @@
             login.style.display = "none"
         }
 
-        function authenticate(){
+        function authenticate() {
             let email = document.login.email.value;
             let password = document.login.password.value;
             isValid = false
             //validation 
 
-            for(let i=0;i<users.length;i++){
-                let user  = users[i];
-                
-                if(email == user.email && password == user.password ){
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i];
+                if (email == user.email && password == user.password) {
                     isValid = true
-                    break 
+                    break
                 }
-                
             }
 
 
-            if(isValid){
-                alert("Welcome");
-            }else{
+            if (isValid) {
+
+                let login = document.getElementById("login");
+                login.style.display = "none"
+                toastr.success("Welcome ", "", { timeOut: 3000 })
+
+                loadTable();
+
+            } else {
                 alert("Invalid Credentials!!!");
             }
 
 
 
 
+        }
+
+        function loadTable() {
+            console.log("loading table");
+            let table = document.createElement("table")
+            let thead = document.createElement("thead")
+            let tbody = document.createElement("tbody")
+
+            table.appendChild(thead)
+            table.appendChild(tbody)
+
+
+            let r1 = document.createElement("tr")
+
+            let th1 = document.createElement("th")
+            th1.innerHTML = "UserId"
+
+            let th2 = document.createElement("th")
+            th2.innerHTML = "FirstName"
+
+            let th3 = document.createElement("th")
+            th3.innerHTML = "Email"
+
+            let th4 = document.createElement("th")
+            th4.innerHTML = "Password"
+
+            r1.appendChild(th1)
+            r1.appendChild(th2)
+            r1.appendChild(th3)
+            r1.appendChild(th4)
+
+            thead.appendChild(r1)
+
+            for(let i=0;i<users.length;i++){
+                user = users[i]
+
+                r = document.createElement("tr")
+                c1 = document.createElement("td")
+                c1.innerHTML = user.userId 
+               
+                c2 = document.createElement("td")
+                c2.innerHTML = user.firstName 
+               
+                c3 = document.createElement("td")
+                c3.innerHTML = user.email 
+               
+                c4 = document.createElement("td")
+                c4.innerHTML = user.password 
+                
+                r.appendChild(c1);
+                r.appendChild(c2);
+                r.appendChild(c3);
+                r.appendChild(c4);
+                
+                tbody.appendChild(r);
+
+            }
+            document.getElementById("mytable").appendChild(table)
+            console.log("done table");
         }
 
     </script>
