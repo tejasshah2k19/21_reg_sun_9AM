@@ -22,7 +22,8 @@
         }
 
         tr,
-        td,th {
+        td,
+        th {
             border: 1px solid black;
             padding: 10px 15px;
         }
@@ -39,14 +40,15 @@
                     <form action="/action_page.php" name="reg">
                         <div class="form-group">
                             <label for="email">FirstName:</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Enter firstname"
-                                name="firstName">
+                            <input type="text" class="form-control" id="firstName" onkeyup="validateFirstName()"
+                                placeholder="Enter firstname" name="firstName">
                             <p class="error" id="firstNameError"></p>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <input type="text" class="form-control" id="email" onblur="validateEmail()"
+                                placeholder="Enter email" name="email">
                             <p class="error" id="emailError"></p>
                         </div>
                         <div class="form-group">
@@ -92,19 +94,29 @@
         </div> <!-- main login form div-->
 
 
-        <div id="mytable">
-
+        <div id="mytable" style="display: none;">
+            <br>
+            <a onclick="logout()">Logout</a>
+            <br>
         </div>
     </div>
     <!--container-->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         var users = []
-        let dummy1 = {userId:1234,firstName:"tejas",email:"tejas@gmail.com",password:"12345678"}
-        let dummy2 = {userId:45678,firstName:"prisha",email:"prisha@gmail.com",password:"12345678"}
-        
+        let dummy1 = { userId: 1224, firstName: "tejas", email: "tejas@gmail.com", password: "12345678" }
+        let dummy2 = { userId: 4568, firstName: "prisha", email: "prisha@gmail.com", password: "12345678" }
+        let dummy3 = { userId: 6782, firstName: "ram", email: "ram@gmail.com", password: "12345678" }
+        let dummy4 = { userId: 1468, firstName: "sita", email: "sita@gmail.com", password: "12345678" }
+        let dummy5 = { userId: 4278, firstName: "ravan", email: "ravan@gmail.com", password: "12345678" }
+
         users.push(dummy1)
         users.push(dummy2)
+        users.push(dummy3)
+        users.push(dummy4)
+        users.push(dummy5)
 
         function saveData() {
             let firstName = document.reg.firstName.value;
@@ -219,6 +231,7 @@
 
         function loadTable() {
             console.log("loading table");
+            document.getElementById("mytable").style.display = "block";
             let table = document.createElement("table")
             let thead = document.createElement("thead")
             let tbody = document.createElement("tbody")
@@ -241,34 +254,44 @@
             let th4 = document.createElement("th")
             th4.innerHTML = "Password"
 
+            let th5 = document.createElement("th")
+            th5.innerHTML = "Action"
+
+
             r1.appendChild(th1)
             r1.appendChild(th2)
             r1.appendChild(th3)
             r1.appendChild(th4)
+            r1.appendChild(th5)
 
             thead.appendChild(r1)
 
-            for(let i=0;i<users.length;i++){
+            for (let i = 0; i < users.length; i++) {
                 user = users[i]
 
                 r = document.createElement("tr")
+                r.setAttribute("id", i)
+
                 c1 = document.createElement("td")
-                c1.innerHTML = user.userId 
-               
+                c1.innerHTML = user.userId
+
                 c2 = document.createElement("td")
-                c2.innerHTML = user.firstName 
-               
+                c2.innerHTML = user.firstName
+
                 c3 = document.createElement("td")
-                c3.innerHTML = user.email 
-               
+                c3.innerHTML = user.email
+
                 c4 = document.createElement("td")
-                c4.innerHTML = user.password 
-                
+                c4.innerHTML = user.password
+
+                c5 = document.createElement("td")
+                c5.innerHTML = "<button onclick='deleteRecord(" + i + ")' >Delete</button>"
+
                 r.appendChild(c1);
                 r.appendChild(c2);
                 r.appendChild(c3);
                 r.appendChild(c4);
-                
+                r.appendChild(c5);
                 tbody.appendChild(r);
 
             }
@@ -276,6 +299,54 @@
             console.log("done table");
         }
 
+
+        function deleteRecord(rowId) {
+            let tr = document.getElementById(rowId)
+            tr.remove()
+
+            users.splice(rowId, 1);
+
+        }
+
+        function logout() {
+            let mytable = document.getElementById("mytable")
+            mytable.style.display = "none"
+            l = document.getElementById("login")
+            l.style.display = "block"
+        }
+
+        function validateFirstName() {
+            let firstName = document.reg.firstName.value;
+
+            var onlyAlphabets = /^[a-zA-Z]+$/; //a-z A-Z atleat 1 char or n char  
+
+            if (firstName == undefined || firstName.trim().length == 0) {
+                document.getElementById("firstNameError").innerHTML = "Please Enter FirstName"
+            } else if (onlyAlphabets.test(firstName) == false) {
+                document.getElementById("firstNameError").innerHTML = "Please Enter Only alphabets [ a-z or A-Z ] "
+            }
+            else {
+                document.getElementById("firstNameError").innerHTML = ""
+            }
+
+
+        }
+
+
+        function validateEmail() {
+            let email = document.reg.email.value;
+            var emailReg = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if (email == undefined || email.trim().length == 0) {
+                document.getElementById("emailError").innerHTML = "Please Enter Email"
+
+            } else if (emailReg.test(email) == false) {
+                document.getElementById("emailError").innerHTML = "Invalid Email"
+            }
+            else {
+                document.getElementById("emailError").innerHTML = ""
+            }
+
+        }
     </script>
 </body>
 

@@ -254,6 +254,30 @@ table.appendChild(tbody)
  
 ------------------------------
 
+to remove any element / html tag using dom we need to remove() 
+first we need locate it using id or name or any other methods 
+
+let tr = document.getElementById("1")
+tr.remove() 
+
+if you want to set any attribute in html tag / element using dom 
+we need to use setAttribute()  -> it has two arguments key,value => key is any valid attribute and value is any valid value 
+
+let tr = document.createElement("tr")
+ts.setAttribute("id",1)
+
+let tr = document.getElementById("1")
+tr.remove() 
+
+
+------------------------------
+
+
+
+
+
+
+
 
 
 
