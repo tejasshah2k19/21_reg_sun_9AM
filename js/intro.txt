@@ -272,6 +272,128 @@ tr.remove()
 
 ------------------------------
 
+RegEX 
+
+    let name = "royal education" 
+
+    let index = name.search("education") // 6 
+
+    searc method + regex 
+
+    let name = "royal education" 
+    let index = name.search(/education/) // 6 ->  
+
+
+    let name = "royal education" 
+    let index = name.search(/Education/) // -1 ->  
+
+
+
+    let name = "royal education" 
+    let index = name.search(/Education/i) // 6 -> i is used to ignore case 
+
+
+    [] 
+    +
+    ?
+    *
+
+    metacharacter 
+
+    \d => digit  
+      
+
+Password 
+    0-9 1 
+    a-z 1
+    A-Z 1
+
+  
+        digit = /\d/
+    let digit = /[0-9]/
+    let small = /[a-z]/
+    let upper = /[A-Z]/
+
+    let data = "john@gmail.com"
+
+    if(digit.test(data) == false){
+        document.getElementById("emailError").innerHTML = "Please Enter atleast 1 digit"
+    }else   if(digit.test(data) == false){
+        document.getElementById("emailError").innerHTML = "Please Enter atleast 1 digit"
+    } else if(digit.test(data) == false){
+        document.getElementById("emailError").innerHTML = "Please Enter atleast 1 digit"
+    } 
+
+    if(digit.test(data) == false || small.test(data) == false  || upper.test(data) == false){
+        document.getElementById("emailError").innerHTML = "Password must contains digit - small alpha - upper alpha "
+    }
+
+
+    
+    let data = "royaleducation ahmedabad" 
+
+    data.match(/e/)
+
+
+--------------------------------------------------------------
+
+date -> class 
+Date 
+
+let date  = new Date() // create object 
+
+
+
+dd-mm-yy 
+dd-mon-yyyy 
+year - currentYear 
+
+--------------------------------------------------------------
+Task: ADd DateOfBirth In signup master and validate user must be 18+  
+
+--------------------------------------------------------------
+
+create one document that dispay live clock.
+
+--------------------------------------------------------------
+
+object - oriented 
+
+class - object 
+
+ES6  => ECMAScript = 2015
+ 
+class User {
+    //variable --> userId firstName email password  
+    //instance variable == class 
+    constructor(){
+        this.firstName = ""
+        this.email = ""
+        this.userId = 0
+        this.password = "" 
+    }
+ 
+/*
+    constructor(userId,fn,email,password){
+        this.userId = userId 
+        this.firstName = fn 
+    }
+*/
+}
+
+let user = new User();
+
+let user = new User(1,"tejas","tejas@gmail.com","tejaspassword")
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -58,6 +58,15 @@
                             <p class="error" id="passwordError"></p>
                         </div>
 
+
+                        <div class="form-group">
+                            <label for="pwd">DoB:</label>
+                            <input type="date" class="form-control" id="dob" placeholder="Enter DOB"
+                                name="dob">
+                            <p class="error" id="dobError"></p>
+                        </div>
+
+
                         <button type="button" class="btn btn-primary" onclick="saveData()">Submit</button>
                     </form>
                     <a href="#" onclick="loginForm()">Login</a>
@@ -105,6 +114,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+
+        //class User 
         var users = []
         let dummy1 = { userId: 1224, firstName: "tejas", email: "tejas@gmail.com", password: "12345678" }
         let dummy2 = { userId: 4568, firstName: "prisha", email: "prisha@gmail.com", password: "12345678" }
@@ -233,6 +244,7 @@
             console.log("loading table");
             document.getElementById("mytable").style.display = "block";
             let table = document.createElement("table")
+            table.setAttribute("id","myDataTable")
             let thead = document.createElement("thead")
             let tbody = document.createElement("tbody")
 
@@ -309,6 +321,8 @@
         }
 
         function logout() {
+            let myDataTable = document.getElementById("myDataTable")
+            myDataTable.remove()    
             let mytable = document.getElementById("mytable")
             mytable.style.display = "none"
             l = document.getElementById("login")
