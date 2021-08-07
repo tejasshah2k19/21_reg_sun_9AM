@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="red()">
+
+
+    
+</body>
+
+<script>
+    //cal back 
+
+    function red(){
+        document.body.bgColor="red";
+        //setTimeout(yellow(),1000);
+        setTimeout(yellow,1000) //name 
+    }
+
+
+    function yellow(){
+        document.body.bgColor="yellow";
+        setTimeout(blue,1000);
+    }
+
+    
+    function blue(){
+        document.body.bgColor="blue";
+        setTimeout(green,1000);
+    }
+
+
+    function green(){
+        document.body.bgColor="green";
+        setTimeout(orange,1000);
+
+    }
+
+
+    function orange(){
+        document.body.bgColor="orange";
+        setTimeout(red,1000);
+     }
+
+</script>
+</html>

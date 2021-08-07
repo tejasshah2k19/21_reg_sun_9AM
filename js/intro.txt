@@ -385,8 +385,62 @@ let user = new User();
 
 let user = new User(1,"tejas","tejas@gmail.com","tejaspassword")
 
+let data = {
+    firstName:
+    email : 
+}
+
+let data1 = {
+
+    firstName:
+    email:
+    password: 
+}
 
 
+js 
+
+
+class A{
+
+
+}
+
+let a = new A() 
+----------------------------------------------------------
+oop-> 
+    inheritance --> object of one class can access property of another class 
+    to achieve inheritance we will use extends keyword  
+
+
+    class Employee{
+        constructor(f,c){
+            this.firstName = f
+            this.city = c
+        }
+        printData()
+        {
+            console.log("\nFirstName : "+this.firstName);
+            console.log("\nCity : "+this.city);    
+        }
+    }
+    class FullTimeEmp extends Employee{
+        constructor(fn,city,salary){
+                super(fn,city); //
+                this.salary = salary 
+        }
+    }
+    class PartTimeEmp extends Employee{
+        constructor(fn,city,dailyPay){
+            super(fn,city) //parent 
+            this.dailyPay = dailyPay
+        }
+    }
+    let ft = new FullTimeEmp("gabbar","ahmedabad",25000)
+    let pt = new PartTimeEmp("babbar","surat",24000)
+    ft.printData(); //firstName city
+
+----------------------------------------------------------
 
 
 
