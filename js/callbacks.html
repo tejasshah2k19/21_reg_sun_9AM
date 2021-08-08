@@ -10,21 +10,27 @@
         <p id="ans"></p>
 </body>
 <script>
-    function display(ans){
-        document.getElementById("ans").innerHTML = ans;
-    }
-    function printFirstName(){
 
-        //db --> data 
-        var data = "gabbar";//calling db 
-        //setTimeOut -> 2000 2second 
-        display(data)
-    }
-    function printLastName(){
-        display("babbar")
-    }
+    //hoisting 
+    //class -- hoisting not possible 
 
-    printFirstName()
-    // printLastName() 
+    function add(a,b,callback){
+        let ans = -1; 
+        
+         setTimeout(function(){
+            ans = a+b;
+            console.log("addition  done...."); 
+            // callback(ans);
+            display(ans);
+        },5000)  
+        return ans;//-1 
+    }
+    function display(data){
+        console.log("printing done");
+        document.getElementById("ans").innerHTML = data; 
+    }
+    let x = add(20,30,display);//50 
+    //display(x)
+
 </script>
 </html>
