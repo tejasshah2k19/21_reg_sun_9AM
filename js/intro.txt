@@ -442,9 +442,57 @@ oop->
 
 ----------------------------------------------------------
 
+ecom 
+
+we have two types of users in ecom app. 
+1)admin
+2)buyer 
+
+admin adds product for sell , buyer buy products 
+
+both can access app via login. without login (public page) we have loging  and signup page in app. 
+
+admin can,
+        login
+        create another admin 
+        can add - list - update and remove products 
+        can list order
+
+buyer can,
+        signup
+        login 
+        home page - after login buyer will redirect to home page. 
+
+        home page = have list of all products and link or button for buy product 
+        we dont have cart , when user click buy product , order is placed for that buyer. 
+        also buyer can view all the orders that is placed by them. 
+        buyer can not view each others order , they can view theirs orders only. 
 
 
+-----------------------------------------------------------------------
 
+BOM --> Browser object model 
+DOM --> document  
+
+
+window ->  
+    window.document 
+    window.screen
+    window.navigator 
+    window.location 
+
+    document.getElementById("p")
+    window.document.getElementById("p")
+
+    window.innerHeight 
+    window.innerWidth 
+    [scorllbars,toolmenu,filemenu]
+
+
+    window.open(url,frameName,options);
+screen
+
+navigator:-> browser
 
 
 

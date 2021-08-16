@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="newWindow()">OpenNewWindow</button>
+    <button onclick="closeWindow()">CloseWindow</button>
+
+    <button onclick="whereAmI()">LocateMe</button>
+
+</body>
+<script>
+    var mywindow = "" 
+    function newWindow(){
+        mywindow = window.open("calc.html","mywindow","width=300,height=300")
+    }
+
+    function closeWindow(){
+        // mywindow.resizeTo()
+        // mywindow.close();
+    }
+
+    function whereAmI(){
+        navigator.geolocation.getCurrentPosition(function(data){
+            console.log(data);
+            console.log(data.coords.latitude);
+            console.log(data.coords.longitude);
+            
+     
+        })
+
+    }
+
+</script>
+</html>
