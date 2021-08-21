@@ -1,0 +1,40 @@
+jquery 
+
+
+
+javascript 
+lib --> jquery 
+jquery will use to simplify your javascript 
+collections of function 
+
+"write less,do more" 
+signup-master.html 
+
+
+HTMl tag / Dom manipulation 
+Style / CSS 
+effects and animations  
+event 
+AJAX 
+
+
+
+two: 
+
+1) CDN / url 
+2) offline 
+
+
+
+we can use $ -> jquery 
+
+
+
+
+
+
+
+
+
+
+
