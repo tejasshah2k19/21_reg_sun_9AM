@@ -27,6 +27,68 @@ two:
 
 
 we can use $ -> jquery 
+-----------------------------------------------------------
+
+1) take date of birth from user and print age  [ use date picker ]
+
+-----------------------------------------------------------
+
+jdbc 
+
+j2ee -> web -> 
+spring -> 
+
+
+GET POST 
+
+REST api   use 
+db 
+
+read	GET
+write	POST
+modify	PUT
+destroy DELETE 
+
+REST ==> server ==> incoming : ==>  output : ==> json 
+
+
+signup url --> POST 
+show cart --> GET 
+cart iphone remove --> DELETE 
+
+
+POST http://healthy-me-rest-api.herokuapp.com/saveuser
+GET  http://healthy-me-rest-api.herokuapp.com/users
+
+AJAX 
+
+
+$.ajax({url:"",type:""});
+$.post({url:""});
+$.get();
+
+let data = {
+
+
+}
+
+$.ajax({
+    type:"POST",
+    url:"http://healthy-me-rest-api.herokuapp.com/saveuser",
+    data:data,
+    success:function(data){
+        console.log("server => ",data);
+    },
+    contentType:"application/json",
+    dataType:"json"  
+});
+
+
+-----------------------------------------------------------
+
+
+
+
 
 
 
