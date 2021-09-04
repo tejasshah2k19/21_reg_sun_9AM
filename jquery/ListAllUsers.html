@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>all users</title>
 </head>
+
 <body>
-    <table id="users" border="1"> 
+    <table id="users" border="1">
         <thead>
             <tr>
                 <th>UserId</th>
                 <th>FirstName</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -19,22 +22,46 @@
         </tbody>
     </table>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        
-        $.get({
-            url:"http://healthy-me-rest-api.herokuapp.com/users",
-            success:function(serverResp){
-                console.log(serverResp);
-                for(let i=0;i<serverResp.data.length;i++){
-                    $("#users > tbody").append("<tr><td>"+serverResp.data[i].userId+"</td><td>"+serverResp.data[i].firstName+"</td></tr>");
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $.get({
+                url: "http://healthy-me-rest-api.herokuapp.com/users",
+                success: function (serverResp) {
+                    console.log(serverResp);
+                    for (let i = 0; i < serverResp.data.length; i++) {
+                        $("#users > tbody").append("<tr><td>" + serverResp.data[i].userId + "</td><td>" + serverResp.data[i].firstName + "</td><td><button value="+serverResp.data[i].userId+">Delete</button></td></tr>");
+                    }
+
+                    $("button").click(function(){
+                        console.log(this);
+                        console.log(this.value); 
+                        let userId = this.value;
+                        $(this).parent().parent().hide();    
+                        
+
+                        $.ajax({
+                            url:"http://healthy-me-rest-api.herokuapp.com/users/"+userId,
+                            method:"DELETE",
+                            success:function(resp){
+                                   alert("user removed"); 
+                            },
+                            error:function(resp){
+                                alert("something went wrong !! "+resp);
+
+                            }
+
+                        })
+
+
+                    })
+
                 }
-       
-            }
+            })
+
         })
-   
-   })
-</script>
+    </script>
 </body>
+
 </html>
