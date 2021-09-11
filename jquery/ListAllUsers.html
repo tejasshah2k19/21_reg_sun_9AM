@@ -31,28 +31,53 @@
                 success: function (serverResp) {
                     console.log(serverResp);
                     for (let i = 0; i < serverResp.data.length; i++) {
-                        $("#users > tbody").append("<tr><td>" + serverResp.data[i].userId + "</td><td>" + serverResp.data[i].firstName + "</td><td><button value="+serverResp.data[i].userId+">Delete</button></td></tr>");
+                        $("#users > tbody").append("<tr><td>" + serverResp.data[i].userId + "</td><td>" + serverResp.data[i].firstName + "</td><td><button name='delete' value=" + serverResp.data[i].userId + ">Delete</button> | <button  name='view' value=" + serverResp.data[i].userId + ">View Detail</button>  </td></tr>");
                     }
 
-                    $("button").click(function(){
-                        console.log(this);
-                        console.log(this.value); 
+                    $("button").click(function () {
+                        // console.log(this);
+                        // console.log(this.name);
+
+                        console.log($(this).text());
                         let userId = this.value;
-                        $(this).parent().parent().hide();    
-                        
 
-                        $.ajax({
-                            url:"http://healthy-me-rest-api.herokuapp.com/users/"+userId,
-                            method:"DELETE",
-                            success:function(resp){
-                                   alert("user removed"); 
-                            },
-                            error:function(resp){
-                                alert("something went wrong !! "+resp);
 
-                            }
+                        if ($(this).text() == "Delete") {
+                            $(this).parent().parent().hide();
 
-                        })
+
+                            $.ajax({
+                                url: "http://healthy-me-rest-api.herokuapp.com/users/" + userId,
+                                method: "DELETE",
+                                success: function (resp) {
+                                    alert("user removed");
+                                },
+                                error: function (resp) {
+                                    alert("something went wrong !! " + resp);
+
+                                }
+
+                            })
+
+                        } else {
+
+                                
+                            $.ajax({
+                                url: "http://healthy-me-rest-api.herokuapp.com/users/" + userId,
+                                method: "GET",
+                                success: function (resp) {
+                                    console.log(resp);
+                                    alert("FirstName : "+resp.data.firstName);
+                                },
+                                error: function (resp) {
+                                    alert("something went wrong !! " + resp);
+
+                                }
+
+                            })
+
+
+                         }
 
 
                     })
