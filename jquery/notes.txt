@@ -86,6 +86,28 @@ $.ajax({
 
 -----------------------------------------------------------
 
+ecom app 
+
+1) signup
+2) login 
+3) if user is admin redirect to admin dashboard ,
+        admin can list all products , add ,remove , update products
+4) if user is custerom then redirect to user home page 
+        display welcome message with greetings  
+            e.g     
+                Welcome , Good morning Tejas  [ good morning and Tejas both are dynamiclally placed ] 
+        on home we also list all products so user can add products in cart and  can palce order. 
+        user home page also have two more links 
+        1) view orders 
+        2) view carts  [ in this user can remove any item from cart]
+5) admin and user both can have logout link on their dashboard/home page 
+
+-----------------------------------------------------------
+
+
+
+
+
 
 
 
